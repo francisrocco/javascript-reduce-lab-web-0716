@@ -21,12 +21,7 @@ const totalBatteries = batteryBatches.reduce((total, batch) => total + batch)
 
 const wordCountMap = monologueLines.reduce((map, sentence) => {
   const wordCount = sentence.split(' ').length;
-
-  if (!map[wordCount]) {
-    map[wordCount] = 0;
-  }
-
-  map[wordCount]++;
+  map[wordCount]++ || (map[wordCount] = 1)
 
   return map;
 }, {})
